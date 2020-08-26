@@ -2,29 +2,20 @@ import React from "react";
 
 import PropTypes from 'prop-types';
 
-const ProductTable = ({ price, name, category }) => {
+const ProductTable = (props) => {
     return (
-    <div>
-       <table style = {{width : '100%', backgroundColor : "lightgray"}}>
         <tr>
-            <th>Name</th>
-            <th>Category</th> 
-            <th>Price</th>
+            <td> {props.name} </td>
+            <td> {props.category} </td>
+            <td> {props.price} </td>
         </tr>
-        <tr>
-            <td> {name} </td>
-            <td> {category} </td>
-            <td> {price} </td>
-        </tr>
-       </table>
-    </div>
     );
     };
 
     ProductTable.propTypes = {
-        price: PropTypes.number,
-        name: PropTypes.string,
-        category: PropTypes.string
-      }
+        name: PropTypes.string.isRequired,
+        category: PropTypes.oneOf(['Clothes', 'Electronics']).isRequired,
+        price: PropTypes.number.isRequired
+    }
 
     export default ProductTable;
